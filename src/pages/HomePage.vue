@@ -30,20 +30,11 @@ export default {
         Pop.error(error)
       }
     }
-    // async function getPosters(){
-    //   try {
-    //     await postService.getPosters();
-    //   } catch (error) {
-    //     Pop.error(error)
-    //   }
-    // }
     onMounted(()=>{
       getPosts();
-      // getPosters();
     })
     return {
       posts: computed(()=>AppState.posts),
-      posters: computed(()=>AppState.posters)
     }
   },
   components:{PostCard}

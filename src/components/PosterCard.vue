@@ -1,8 +1,7 @@
 <template>
   <section>
     <div>
-      <h1>I hope this works</h1>
-      <img :src="poster.linkUrl" :alt="poster.title" class="poster-image">
+      <img :src="poster.tall" :alt="poster.title" class="poster-image p-2">
     </div>
   </section>
   <!-- <section class="flex-grow-1 d-flex flex-column align-items-center justify-content-center">
