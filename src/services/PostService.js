@@ -6,9 +6,9 @@ import { api } from './AxiosService'
 class PostService {
   async getPosts() {
     try {
-      const res = await api.get('/api/models/post')
+      const res = await api.get('api/posts')
       logger.log('whats the issue?', res.data)
-      const newPost = [new Post(res.data)]
+      const newPost = res.data.posts.map(post => new Post(post))
       AppState.posts = newPost
       logger.log('new post in AppState', AppState.posts)
     } catch (err) {
