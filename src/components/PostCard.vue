@@ -1,9 +1,4 @@
 <template>
-  <!-- <section>
-    <div>
-      <h1>I hope this works</h1>
-    </div>
-  </section> -->
   <section class="flex-grow-1 d-flex flex-column align-items-center justify-content-center">
       <div class="card align-items-center" style="width: clamp(500px, 50vw, 100%);">
           <img :src="post.imgUrl" :alt="post.title" class="post-image">

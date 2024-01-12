@@ -15,7 +15,9 @@
               <router-view />
             </div>
             <div class="col-4">
-              <PosterCard />
+              <div v-for="poster in posters">
+                <PosterCard :poster="poster"/>
+              </div>
             </div>
           </div>
         </main>
@@ -30,12 +32,24 @@ import { AppState } from './AppState'
 import Navbar from './components/Navbar.vue'
 import Login from './components/Login.vue'
 import PosterCard from './components/PosterCard.vue'
+import { posterService } from './services/PosterService';
+import { onMounted } from 'vue'
 
 export default {
   setup() {
-    
+    async function getPosters(){
+      try {
+        await posterService.getPosters();
+      } catch (error) {
+        Pop.error(error)
+      }
+    }
+    onMounted(()=>{
+      getPosters();
+    })
     return {
-      appState: computed(() => AppState)
+      appState: computed(() => AppState),
+      posters: computed(()=>AppState.posters)
     }
   },
   components: { Navbar, Login, PosterCard }

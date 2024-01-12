@@ -1,16 +1,16 @@
 import { AppState } from '../AppState'
-import { Post } from '../models/Post'
+import { Poster } from '../models/Poster'
 import { logger } from '../utils/Logger'
 import { api } from './AxiosService'
 
 class PosterService {
   async getPosters() {
     try {
-      const res = await api.get('api/ad')
-      logger.log('whats the issue?', res.data)
-      // const newPoster = res.data.posts.map(poster => new Poster(poster))
-      // AppState.posters = newPoster
-      // logger.log('new post in AppState', AppState.posters)
+      const res = await api.get('api/ads')
+      logger.log('poster res data', res.data)
+      const newPoster = res.data.map(poster => new Poster(poster))
+      AppState.posters = newPoster
+      logger.log('new poster in AppState', AppState.posters)
     } catch (err) {
       logger.error('AHHHHHHHHHHH', err)
     }

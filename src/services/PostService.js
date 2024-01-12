@@ -7,7 +7,7 @@ class PostService {
   async getPosts() {
     try {
       const res = await api.get('api/posts')
-      logger.log('whats the issue?', res.data)
+      logger.log('post res data', res.data)
       const newPost = res.data.posts.map(post => new Post(post))
       AppState.posts = newPost
       logger.log('new post in AppState', AppState.posts)
