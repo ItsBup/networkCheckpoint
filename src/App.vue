@@ -3,13 +3,21 @@
     <div class="row">
       <div class="col-4 p-0">
         <Login />
+        <!--TODO - remove Login from navbar and restyle to fix mock-->
       </div>
       <div class="col-8 p-0">
         <header>
           <Navbar />
         </header>
-        <main>
-          <router-view />
+        <main class="container-fluid">
+          <div class="row">
+            <div class="col-8">
+              <router-view />
+            </div>
+            <div class="col-4">
+              <PosterCard />
+            </div>
+          </div>
         </main>
       </div>
     </div>
@@ -21,14 +29,16 @@ import { computed } from 'vue'
 import { AppState } from './AppState'
 import Navbar from './components/Navbar.vue'
 import Login from './components/Login.vue'
+import PosterCard from './components/PosterCard.vue'
 
 export default {
   setup() {
+    
     return {
       appState: computed(() => AppState)
     }
   },
-  components: { Navbar, Login }
+  components: { Navbar, Login, PosterCard }
 }
 </script>
 <style lang="scss">
