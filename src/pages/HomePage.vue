@@ -47,6 +47,7 @@ export default {
     }
   },
   components:{PostCard}
+  //TODO - gonna need to add a PostForm l8r
 }
 </script>
 
