@@ -19,6 +19,7 @@ import Pop from '../utils/Pop';
 import { AppState } from '../AppState';
 import {postService} from '../services/PostService.js';
 import { computed, onMounted } from 'vue';
+import PostCard from '../components/PostCard.vue';
 
 export default {
   setup() {
