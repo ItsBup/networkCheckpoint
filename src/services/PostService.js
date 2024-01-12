@@ -15,6 +15,10 @@ class PostService {
       logger.error('AHHHHHHHHHHH', err)
     }
   }
+  async createService(postData) {
+    const res = await api.post('api/posts', postData)
+    AppState.posts.push(new Post(res.data))
+}
 }
 
 export const postService = new PostService()

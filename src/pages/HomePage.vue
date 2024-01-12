@@ -4,14 +4,14 @@
       <img src="https://ih1.redbubble.net/image.4745202198.4492/raf,750x1000,075,t,101010:01c5ca27c6.jpg" alt="We Love Casting Spells ~ designed and sold by 
 Srollins001"
         class="rounded-circle">
-        <div v-for="post in posts" class="row">
-          <PostCard :post="post" />
-        </div>
-      <!-- <h1 class="my-5 bg-dark text-white p-3 rounded text-center">
-        Posts Go Here
-      </h1> -->
+      <h1 class="my-2 bg-dark text-white p-3 rounded text-center">
+        CREATE YOUR OWN POST
+      </h1>
     </div>
   </div>
+<div v-for="post in posts" class="row">
+  <PostCard :post="post" />
+</div>
 </template>
 
 <script>
@@ -30,18 +30,30 @@ export default {
         Pop.error(error)
       }
     }
-    onMounted(()=>{getPosts();})
+    // async function getPosters(){
+    //   try {
+    //     await postService.getPosters();
+    //   } catch (error) {
+    //     Pop.error(error)
+    //   }
+    // }
+    onMounted(()=>{
+      getPosts();
+      // getPosters();
+    })
     return {
-      posts: computed(()=>AppState.posts)
+      posts: computed(()=>AppState.posts),
+      posters: computed(()=>AppState.posters)
     }
-  }
+  },
+  components:{PostCard}
 }
 </script>
 
 <style scoped lang="scss">
 .home {
   display: grid;
-  height: 80vh;
+  height: 69vh;
   place-content: center;
   text-align: center;
   user-select: none;
@@ -50,8 +62,8 @@ export default {
     width: clamp(500px, 50vw, 100%);
 
     >img {
-      height: 300px;
-      max-width: 300px;
+      height: 200px;
+      max-width: 200px;
       width: 100%;
       object-fit: contain;
       object-position: center;
