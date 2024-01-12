@@ -7,8 +7,10 @@ class PostService {
   async getPosts() {
     try {
       const res = await api.get('/api/models/post')
-      logger.log('i got the posts chief', AppState.posts)
-      AppState.post = new Post(res.data)
+      logger.log('whats the issue?', res.data)
+      const newPost = [new Post(res.data)]
+      AppState.posts = newPost
+      logger.log('new post in AppState', AppState.posts)
     } catch (err) {
       logger.error('AHHHHHHHHHHH', err)
     }

@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <h1>I hope this works</h1>
-  </div>
+  <section>
+    <div>
+      <h1>I hope this works</h1>
+    </div>
+  </section>
   <!-- <section class="col-6">
       <div class="card">
           <img :src="post.imgUrl" :alt="post.title" class="post-image">
