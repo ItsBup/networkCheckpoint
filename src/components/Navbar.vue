@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark px-3">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
-        <img alt="logo" src="../assets/img/cw-logo.png" height="45" />
+        <img class="rounded-circle" alt="Shadow wizard money gang by-Stradomyre" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f4ca2f77-a97f-4f3f-84a4-ae5f8138e40d/dg0r0a5-2e7e69e0-1a42-49db-8abe-181901dc66fc.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Y0Y2EyZjc3LWE5N2YtNGYzZi04NGE0LWFlNWY4MTM4ZTQwZFwvZGcwcjBhNS0yZTdlNjllMC0xYTQyLTQ5ZGItOGFiZS0xODE5MDFkYzY2ZmMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.HK_ceqQcXhaOmr-Knf_-NjvapHSDYMGDOT2D9ypjQWM" height="45" />
       </div>
     </router-link>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
@@ -13,7 +13,7 @@
       <ul class="navbar-nav me-auto">
         <li>
           <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase">
-            About
+            Click Here to Learn More!
           </router-link>
         </li>
       </ul>

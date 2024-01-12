@@ -1,10 +1,11 @@
 <template>
   <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
     <div class="home-card p-5 card align-items-center shadow rounded elevation-3">
-      <img src="https://bcw.blob.core.windows.net/public/img/8600856373152463" alt="CodeWorks Logo"
+      <img src="https://ih1.redbubble.net/image.4745202198.4492/raf,750x1000,075,t,101010:01c5ca27c6.jpg" alt="We Love Casting Spells ~ designed and sold by 
+Srollins001"
         class="rounded-circle">
       <h1 class="my-5 bg-dark text-white p-3 rounded text-center">
-        Vue 3 Starter
+        Posts Go Here
       </h1>
     </div>
   </div>
@@ -32,8 +33,8 @@ export default {
     width: clamp(500px, 50vw, 100%);
 
     >img {
-      height: 200px;
-      max-width: 200px;
+      height: 300px;
+      max-width: 300px;
       width: 100%;
       object-fit: contain;
       object-position: center;
