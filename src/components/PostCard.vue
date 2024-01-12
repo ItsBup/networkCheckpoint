@@ -1,0 +1,41 @@
+<template>
+  <div>
+    <h1>I hope this works</h1>
+  </div>
+  <!-- <section class="col-6">
+      <div class="card">
+          <img :src="post.imgUrl" :alt="post.title" class="post-image">
+          <h2> {{ post.title }} </h2>
+          <span> {{ post.body }} </span>
+          <router-link :to="{ name: 'Profile', params: { profileId: blog.creatorId } }">
+            <img :title="`Click to go to ${project.creator.name}'s Profile Page :D`" class="profile-pic" :src="post.creator.picture" :alt="post.creator.name">
+          </router-link>
+      </div>
+  </section> -->
+</template>
+
+
+<script>
+
+export default{
+  setup(){
+    return{
+
+    }
+  }
+}
+</script>
+
+
+<style lang="scss" scoped>
+// .post-image {
+//   height: 15vh;
+//   width: 15vh;
+//   object-fit: cover;
+// }
+
+// .profile-pic {
+//   height: 8vh;
+//   width: 8vh;
+// }
+</style>

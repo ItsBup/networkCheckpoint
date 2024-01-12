@@ -1,19 +1,26 @@
 <template>
-  <header>
-    <Navbar />
-  </header>
-  <main>
-    <router-view />
-  </main>
-  <footer class="bg-dark text-light">
-    Made with Spite😤, Hot Choplet☕, and a Devastating Urge to Play Baldur's Gate 3🧙‍♂️
-  </footer>
+  <section class="container-fluid">
+    <div class="row">
+      <div class="col-4 p-0">
+        <Login />
+      </div>
+      <div class="col-8 p-0">
+        <header>
+          <Navbar />
+        </header>
+        <main>
+          <router-view />
+        </main>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
 import { computed } from 'vue'
 import { AppState } from './AppState'
 import Navbar from './components/Navbar.vue'
+import Login from './components/Login.vue'
 
 export default {
   setup() {
@@ -21,7 +28,7 @@ export default {
       appState: computed(() => AppState)
     }
   },
-  components: { Navbar }
+  components: { Navbar, Login }
 }
 </script>
 <style lang="scss">

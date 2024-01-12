@@ -4,18 +4,34 @@
       <img src="https://ih1.redbubble.net/image.4745202198.4492/raf,750x1000,075,t,101010:01c5ca27c6.jpg" alt="We Love Casting Spells ~ designed and sold by 
 Srollins001"
         class="rounded-circle">
-      <h1 class="my-5 bg-dark text-white p-3 rounded text-center">
+        <div v-for="post in posts" class="row">
+          <PostCard :post="post" />
+        </div>
+      <!-- <h1 class="my-5 bg-dark text-white p-3 rounded text-center">
         Posts Go Here
-      </h1>
+      </h1> -->
     </div>
   </div>
 </template>
 
 <script>
+import Pop from '../utils/Pop';
+import { AppState } from '../AppState';
+import {postService} from '../services/PostService.js';
+import { computed, onMounted } from 'vue';
+
 export default {
   setup() {
+    async function getPosts(){
+      try {
+        await postService.getPosts();
+      } catch (error) {
+        Pop.error(error)
+      }
+    }
+    onMounted(()=>{getPosts();})
     return {
-      
+      posts: computed(()=>AppState.posts)
     }
   }
 }
