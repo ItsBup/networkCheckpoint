@@ -5,8 +5,8 @@
   <main>
     <router-view />
   </main>
-   <footer class="bg-dark text-light">
-    Made with 💖 by CodeWorks
+  <footer class="bg-dark text-light">
+    Made with Spite😤, Hot Choplet☕, and a Devastating Urge to Play Baldur's Gate 3🧙‍♂️
   </footer>
 </template>
 
