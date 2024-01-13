@@ -1,3 +1,4 @@
+import { applyStyles } from '@popperjs/core'
 import { AppState } from '../AppState'
 import { Post } from '../models/Post'
 import { logger } from '../utils/Logger'
@@ -18,7 +19,13 @@ class PostService {
   async createService(postData) {
     const res = await api.post('api/posts', postData)
     AppState.posts.push(new Post(res.data))
-}
+  }
+  async getPostId(profileId){
+    const res = await api.get(`api/posts?creatorId=${profileId}`)
+    logger.log('post by creator Id for Profile', res.data)
+    const newPosts = res.data.map(post => new Post(post))
+    AppState.profilePosts = newPosts
+  }
 }
 
 export const postService = new PostService()

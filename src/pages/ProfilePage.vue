@@ -8,13 +8,13 @@
           <img :src="profile.coverImg" alt="its a cover image">
         </div>
       </div>
-      <div class="col-8 ps-5">
+      <!-- <div class="col-8 ps-5">
         <h1>
           <a href="profile.github"></a>
 
         </h1>
         <p>{{ profile.bio }}</p>
-      </div>
+      </div> -->
 
     </section>
 
@@ -27,6 +27,8 @@ import Pop from '../utils/Pop.js';
 import { AppState } from '../AppState.js'
 import { profileService } from '../services/ProfileService.js';
 import { useRoute } from 'vue-router';
+import PostCard from '../components/PostCard.vue';
+import { postService } from '../services/PostService';
 
 
 export default {
@@ -34,24 +36,34 @@ export default {
     const route = useRoute();
     // const watchableProfileId = computed(() => route.params.profileId)
 
-    async function getProfileById() {
+    async function getProfileId() {
       try {
         const profileId = route.params.profileId
-        await profileService.getProfileId(profileId);
+        await profileService.getProfileId(profileId)
       }
       catch (error) {
         Pop.error(error);
       }
     }
+    async function getPostId() {
+      try {
+        const profileId = route.params.profileId
+        await postService.getPostId(profileId)
+      } catch (error) {
+        Pop.error(error);
+      }
+    }
     onMounted(() => {
 
-      getProfileById();
+      getProfileId();
 
     })
     return {
       profile: computed(() => AppState.activeProfile),
+      posts: computed(() => AppState.profilePosts)
     }
   },
+  components:{PostCard}
 }
 </script>
 
