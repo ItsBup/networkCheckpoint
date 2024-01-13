@@ -5,5 +5,6 @@ export class Post {
     this.imgUrl = data.imgUrl
     this.creatorId = data.creatorId
     this.likeIds = data.likeIds
+    this.creator = data.creator
   }
 }
