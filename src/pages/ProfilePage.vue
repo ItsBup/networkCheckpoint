@@ -54,8 +54,9 @@ export default {
       }
     }
     onMounted(() => {
-
+      postService.clearAppState()
       getProfileId();
+      getPostId();
 
     })
     return {

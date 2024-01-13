@@ -26,6 +26,10 @@ class PostService {
     const newPosts = res.data.map(post => new Post(post))
     AppState.profilePosts = newPosts
   }
+  clearAppState() {
+    AppState.activeProfile = null
+    AppState.profilePosts = []
+  }
 }
 
 export const postService = new PostService()
