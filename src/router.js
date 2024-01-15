@@ -28,6 +28,10 @@ const routes = [
     component: loadPage('ProfilePage'),
     beforeEnter: authGuard
   }
+  // TODO create a route for a search page here
+  // On your search page, have a single input for the user to fill out with a search term
+  // Capture that search term and send it down to your service, you will need to format you request url to look similar to this: '/api/posts?query=*query*'
+
 ]
 
 export const router = createRouter({

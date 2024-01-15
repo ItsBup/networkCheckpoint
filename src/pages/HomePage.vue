@@ -9,6 +9,7 @@ Srollins001"
       </h1>
     </div>
   </div> -->
+  <!-- TODO put buttons here for page navigation, target pageNumber stored in AppState with a computed, pass down page numbers as argument with math done here. Reference VueFlix changePage methods -->
   <section>
     <div v-if="account.id">
       <PostForm />
@@ -24,7 +25,7 @@ Srollins001"
 <script>
 import Pop from '../utils/Pop';
 import { AppState } from '../AppState';
-import {postService} from '../services/PostService.js';
+import { postService } from '../services/PostService.js';
 import { computed, onMounted } from 'vue';
 import PostCard from '../components/PostCard.vue';
 import PostForm from '../components/PostForm.vue';
@@ -32,22 +33,22 @@ import { Account } from '../models/Account';
 
 export default {
   setup() {
-    async function getPosts(){
+    async function getPosts() {
       try {
         await postService.getPosts();
       } catch (error) {
         Pop.error(error)
       }
     }
-    onMounted(()=>{
+    onMounted(() => {
       getPosts();
     })
     return {
-      posts: computed(()=>AppState.posts),
-      account: computed(()=>AppState.account)
+      posts: computed(() => AppState.posts),
+      account: computed(() => AppState.account)
     }
   },
-  components:{ PostCard, PostForm }
+  components: { PostCard, PostForm }
 }
 </script>
 

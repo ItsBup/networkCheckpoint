@@ -13,4 +13,5 @@ export const AppState = reactive({
   activeProfile: null,
   /** @type {import('./models/Post.js').Post[]} */
   profilePosts: [],
+  // TODO create a new array here for searchedPosts
 })
