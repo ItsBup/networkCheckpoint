@@ -1,11 +1,12 @@
 export class Post {
-  constructor(data) {
+  constructor (data) {
     this.id = data.id
     this.body = data.body
     this.imgUrl = data.imgUrl
     this.creatorId = data.creatorId
     this.likeIds = data.likeIds
     this.creator = data.creator
+    
   }
   // formatDate(date) {
   //   if (date instanceof Date) {
