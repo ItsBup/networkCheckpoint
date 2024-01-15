@@ -1,14 +1,13 @@
 <template>
-<!-- //TODO - make an actual form -->
 <div class="component">
-    <form @submit.prevent="handleSubmit()">
-        <div class="mb-3 col-3">
-            <label for="post-body">Body</label>
-            <input type="text" minlength="3" maxlength="20" required name="post-body" id="post-body">
+    <form class="row" @submit.prevent="createPost()">
+        <div class="mb-3 col-12">
+            <label for="post-body">What's on your mind?</label>
+            <input v-model="postData.body" class="form-control" type="text" minlength="3" maxlength="200" required name="post-body" id="post-body">
         </div>
         <div class="mb-3 col-3">
-            <label for="post-imgUrl">imgUrl</label>
-            <input type="url" required name="post-imgUrl" id="post-imgUrl">
+            <label for="post-imgUrl">Paste your imgUrl here!</label>
+            <input v-model="postData.imgUrl" class="form-control" type="url" required name="post-imgUrl" id="post-imgUrl">
         </div>
         <div class="mb-2 d-flex justify-content-end">
             <button class="btn" type="button" @click="resetForm">Cancel</button>
@@ -17,19 +16,25 @@
     </form>
 </div>
 </template>
-<!--  -->
 
 <script>
 import { postService } from '../services/PostService.js';
 import { Post } from '../models/Post.js';
+import Pop from '../utils/Pop';
+import { logger } from '../utils/Logger';
+import { ref } from 'vue';
 export default {
-    props: { postProp: { type: Post } },
-    setup(props) {
-      //TODO const profileData = {}
+    setup() {
+        const postData = ref({})
     return {
-          //TODO profileData,
+        postData,
         async createPost() {
-            await postService.createPost()
+            try {
+                logger.log('create Post', postData.value)
+                // await postService.createPost()
+            } catch (error) {
+                Pop.error(error)
+            }
             }
         }
     }
