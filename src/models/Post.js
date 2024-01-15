@@ -6,5 +6,13 @@ export class Post {
     this.creatorId = data.creatorId
     this.likeIds = data.likeIds
     this.creator = data.creator
+    this.createdAt = this.formatDate(new Date());
+  }
+  formatDate(date) {
+    return date.toLocaleDateString('en-US', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+    });
   }
 }

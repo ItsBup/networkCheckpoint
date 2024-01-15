@@ -1,15 +1,24 @@
 <template>
-  <section class="flex-grow-1 d-flex flex-column align-items-center justify-content-center">
-      <div class="card align-items-center">
-          <img :src="post.imgUrl" :alt="post.title" class="post-image card-img-top">
-          <h4 class="bg-dark text-white p-3 rounded text-center"> {{ post.body }} </h4>
-          <router-link :to="{ name: 'Profile', params: { profileId: post.creatorId } }">
-            <img :title="`Click to go to ${post.creator.name}'s Profile Page :D`" class="profile-pic" :src="post.creator.picture" :alt="post.creator.name">
-          </router-link>
+      <div class="card">
+        <div class="card-body d-flex justify-content-start">
+          <div class="rounded-circle">
+            <router-link :to="{ name: 'Profile', params: { profileId: post.creatorId } }">
+              <img :title="`Click to go to ${post.creator.name}'s Profile Page :D`" class="profile-pic" :src="post.creator.picture" :alt="post.creator.name">
+            </router-link>
+          </div>
+          <div class="ms-3 mb-4">
+            <h5 class="card-title">{{post.creator.name}}</h5>
+            <p class="card-subtitle text-body-secondary">{{ post.createdAt }}</p>
+            <h6 class="card-text p-3"> {{ post.body }} </h6>
+          </div>
+          <p v-if="post.creator.graduated" class="card-subtitle text-body-secondary"><i class="mdi mdi-account-school-outline"></i></p>
+          <div>  
+          </div>
+        </div>
+        <img :src="post.imgUrl" :alt="post.title" class="post-image card-img-top">
       </div>
-  </section>
 </template>
-<!-- //TODO - creator name createdAt creator pic, body, like count -->
+
 
 <script>
 import { RouterLink } from 'vue-router';
@@ -30,13 +39,17 @@ export default{
 <style lang="scss" scoped>
 .post-image {
   height: 50vh;
-  width: 100vh;
+  width: 100%;
   object-fit: cover;
   object-position: center;
 }
-
+.rounded-circle {
+  border-radius: 50%;
+  overflow: hidden;
+}
 .profile-pic {
-  height: 8vh;
-  width: 8vh;
+  height: 18vh;
+  width: 18vh;
+
 }
 </style>

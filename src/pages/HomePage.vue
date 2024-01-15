@@ -9,7 +9,7 @@ Srollins001"
       </h1>
     </div>
   </div>
-<div v-for="post in posts" class="row">
+<div v-for="post in posts">
   <PostCard :post="post" />
 </div>
 </template>
