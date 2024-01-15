@@ -1,11 +1,11 @@
 <template>
   <section class="container-fluid">
     <div class="row">
-      <div class="col-4 p-0">
+      <div class="col-3 p-0">
         <Login />
         <!--TODO - remove Login from navbar and restyle to fix mock-->
       </div>
-      <div class="col-8 p-0">
+      <div class="col-9 p-0">
         <header>
           <Navbar />
         </header>

@@ -23,7 +23,7 @@ class PostService {
   async getPostId(profileId){
     const res = await api.get(`api/posts?creatorId=${profileId}`)
     logger.log('post by creator Id for Profile', res.data)
-    const newPosts = res.data.map(post => new Post(post))
+    const newPosts = res.data.posts.map(post => new Post(post))
     AppState.profilePosts = newPosts
   }
   clearAppState() {
