@@ -10,6 +10,8 @@
             <h5 class="card-title">{{post.creator.name}}</h5>
             <p class="card-subtitle text-body-secondary">{{ post.createdAt }}</p>
             <h6 class="card-text p-3"> {{ post.body }} </h6>
+          </div><div class="ms-auto mb-4">
+            <h3 class="card-text p-3">{{ post.likeIds.length }} <i class="mdi mdi-heart-outline"></i></h3>
           </div>
           <p v-if="post.creator.graduated" class="card-subtitle text-body-secondary"><i class="mdi mdi-account-school-outline"></i></p>
           <div>  
@@ -26,13 +28,25 @@ import { RouterLink } from 'vue-router';
 import { Post } from '../models/Post.js';
 import { computed } from 'vue';
 import { AppState } from '../AppState';
+import Pop from '../utils/Pop';
+import { postService } from '../services/PostService';
 export default{
   props: {
     post: { type: Post, required: true }
   },
   setup() {
     return {
-      account: computed(()=>AppState.account)
+      account: computed(()=>AppState.account),
+      async deletePost(postId){
+      try {
+        if(await Pop.confirm('WARNING!!! This will toss your post into the ABYSS')){
+          await postService.deletePost(postId)
+          Pop.success('the void thanks you for your contribution')
+        }
+      } catch (error) {
+        Pop.error(error)
+      }
+    },
     };
   },
   components: { RouterLink }

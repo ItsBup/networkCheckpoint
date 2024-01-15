@@ -21,6 +21,12 @@ class PostService {
     logger.log('new post success', res.data)
     AppState.posts.push(new Post(res.data))
   }
+  async deletePost(postId){
+    const res = await api.delete(`api/posts/${postId}`)
+    logger.log('GOTCHA!!! PREPARING TO DELETE', res.data);
+    const indexToRemove = AppState.posts.findIndex(post => post.id == postId)
+    AppState.posts.splice(indexToRemove,1)
+  }
   async getPostId(profileId){
     const res = await api.get(`api/posts?creatorId=${profileId}`)
     logger.log('post by creator Id for Profile', res.data)
