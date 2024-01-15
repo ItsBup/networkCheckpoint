@@ -18,6 +18,7 @@ class PostService {
   }
   async createPost(postData) {
     const res = await api.post('api/posts', postData)
+    logger.log('new post success', res.data)
     AppState.posts.push(new Post(res.data))
   }
   async getPostId(profileId){

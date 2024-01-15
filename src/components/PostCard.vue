@@ -16,6 +16,7 @@
           </div>
         </div>
         <img :src="post.imgUrl" :alt="post.title" class="post-image card-img-top">
+        <button @click="deletePost(post.id)" v-if="account.id == post.creatorId" class="btn btn-danger delete-button" title="delete post"><i class="mdi mdi-delete-forever"></i></button>
       </div>
 </template>
 
@@ -23,12 +24,16 @@
 <script>
 import { RouterLink } from 'vue-router';
 import { Post } from '../models/Post.js';
+import { computed } from 'vue';
+import { AppState } from '../AppState';
 export default{
   props: {
     post: { type: Post, required: true }
   },
   setup() {
-    return {};
+    return {
+      account: computed(()=>AppState.account)
+    };
   },
   components: { RouterLink }
 }

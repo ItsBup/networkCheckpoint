@@ -10,7 +10,9 @@ Srollins001"
     </div>
   </div> -->
   <section>
-    <PostForm />
+    <div v-if="account.id">
+      <PostForm />
+    </div>
   </section>
   <section>
     <div v-for="post in posts">
@@ -26,6 +28,7 @@ import {postService} from '../services/PostService.js';
 import { computed, onMounted } from 'vue';
 import PostCard from '../components/PostCard.vue';
 import PostForm from '../components/PostForm.vue';
+import { Account } from '../models/Account';
 
 export default {
   setup() {
@@ -41,10 +44,10 @@ export default {
     })
     return {
       posts: computed(()=>AppState.posts),
+      account: computed(()=>AppState.account)
     }
   },
   components:{ PostCard, PostForm }
-  //TODO - gonna need to add a PostForm l8r
 }
 </script>
 
