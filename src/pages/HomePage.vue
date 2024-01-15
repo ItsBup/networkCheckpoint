@@ -1,5 +1,5 @@
 <template>
-  <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
+  <!-- <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
     <div class="home-card p-5 card align-items-center shadow rounded elevation-3">
       <img src="https://ih1.redbubble.net/image.4745202198.4492/raf,750x1000,075,t,101010:01c5ca27c6.jpg" alt="We Love Casting Spells ~ designed and sold by 
 Srollins001"
@@ -8,10 +8,15 @@ Srollins001"
         CREATE YOUR OWN POST
       </h1>
     </div>
-  </div>
-<div v-for="post in posts">
-  <PostCard :post="post" />
-</div>
+  </div> -->
+  <section>
+    <PostForm />
+  </section>
+  <section>
+    <div v-for="post in posts">
+      <PostCard :post="post" />
+    </div>
+  </section>
 </template>
 
 <script>
@@ -20,6 +25,7 @@ import { AppState } from '../AppState';
 import {postService} from '../services/PostService.js';
 import { computed, onMounted } from 'vue';
 import PostCard from '../components/PostCard.vue';
+import PostForm from '../components/PostForm.vue';
 
 export default {
   setup() {
@@ -37,7 +43,7 @@ export default {
       posts: computed(()=>AppState.posts),
     }
   },
-  components:{PostCard}
+  components:{ PostCard, PostForm }
   //TODO - gonna need to add a PostForm l8r
 }
 </script>

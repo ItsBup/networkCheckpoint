@@ -1,5 +1,5 @@
 <template>
-      <div class="card">
+      <div class="card m-3">
         <div class="card-body d-flex justify-content-start">
           <div class="rounded-circle">
             <router-link :to="{ name: 'Profile', params: { profileId: post.creatorId } }">
