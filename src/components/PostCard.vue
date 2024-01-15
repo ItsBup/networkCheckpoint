@@ -8,7 +8,7 @@
           </div>
           <div class="ms-3 mb-4">
             <h5 class="card-title">{{post.creator.name}}</h5>
-            <p class="card-subtitle text-body-secondary">{{ post.createdAt }}</p>
+            <p class="card-subtitle text-body-secondary">{{ post.creator.createdAt }}</p>
             <h6 class="card-text p-3"> {{ post.body }} </h6>
           </div><div class="ms-auto mb-4">
             <h3 class="card-text p-3">{{ post.likeIds.length }} <i class="mdi mdi-heart-outline"></i></h3>
@@ -17,7 +17,7 @@
           <div>  
           </div>
         </div>
-        <img :src="post.imgUrl" :alt="post.title" class="post-image card-img-top">
+        <img v-if="post.imgUrl" :src="post.imgUrl" :alt="post.title" class="post-image card-img-top">
         <button @click="deletePost(post.id)" v-if="account.id == post.creatorId" class="btn btn-danger delete-button" title="delete post"><i class="mdi mdi-delete-forever"></i></button>
       </div>
 </template>

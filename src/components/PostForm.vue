@@ -7,7 +7,7 @@
         </div>
         <div class="mb-3 col-6">
             <label for="post-imgUrl">Paste your imgUrl here!</label>
-            <input v-model="postData.imgUrl" class="form-control" type="url" required name="post-imgUrl" id="post-imgUrl">
+            <input v-model="postData.imgUrl" class="form-control" type="url" name="post-imgUrl" id="post-imgUrl">
         </div>
         <div class="col-6 p-3">
             <img v-if="postData.imgUrl" :src="postData.imgUrl" class="img-fluid" alt="preview of post image">
