@@ -10,9 +10,10 @@
             <h5 class="card-title">{{post.creator.name}}</h5>
             <p class="card-subtitle text-body-secondary">{{ formatDate(post.createdAt) }}</p>
             <h6 class="card-text p-3"> {{ post.body }} </h6>
-          </div><div class="ms-auto mb-4">
-            <!-- TODO if the user is logged in, show a button here that will allow them to like the post. Use a v-if // v-else -->
-            <h3 class="card-text p-3">{{ post.likeIds.length }} <i class="mdi mdi-heart-outline"></i></h3>
+          </div>
+          <div class="ms-auto mb-4">
+            <button v-if="account.id" @click="likePost(post.id)" class="btn btn-primary" title="Like post">{{ post.likeIds.length }} <i class="mdi mdi-heart-outline"></i></button>
+            <h3 v-else class="card-text p-3">{{ post.likeIds.length }} <i class="mdi mdi-heart-outline"></i></h3>
           </div>
           <p v-if="post.creator.graduated" class="card-subtitle text-body-secondary"><i class="mdi mdi-account-school-outline"></i></p>
           <div>  
@@ -53,7 +54,13 @@ export default {
           Pop.error(error)
         }
       },
-      // TODO write a method that will allow the user to like a post, you will need a post ID to pass down to your service
+      async likePost(postId) {
+        try {
+          await postService.likePost(postId)
+        } catch (error) {
+          Pop.error(error)
+        }
+      },
     };
   },
   components: { RouterLink }

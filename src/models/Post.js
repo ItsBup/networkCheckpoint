@@ -7,18 +7,5 @@ export class Post {
     this.likeIds = data.likeIds
     this.creator = data.creator
     this.createdAt = data.createdAt
-    // this.formattedDate = this.formatDate(data.creator.createdAt)
-    
   }
-  // formatDate(date) {
-  //   if (date instanceof Date) {
-  //     return date.toLocaleDateString('en-US', {
-  //       day: 'numeric',
-  //       month: 'short',
-  //       year: 'numeric',
-  //     });
-  //   } else {
-  //     return 'Invalid Date';
-  //   }
-  // }
 }
