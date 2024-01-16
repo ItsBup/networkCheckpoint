@@ -8,7 +8,7 @@
           </div>
           <div class="ms-3 mb-4">
             <h5 class="card-title">{{post.creator.name}}</h5>
-            <p class="card-subtitle text-body-secondary">{{ post.creator.createdAt }}</p>
+            <p class="card-subtitle text-body-secondary">{{ formatDate(post.createdAt) }}</p>
             <h6 class="card-text p-3"> {{ post.body }} </h6>
           </div><div class="ms-auto mb-4">
             <!-- TODO if the user is logged in, show a button here that will allow them to like the post. Use a v-if // v-else -->
@@ -38,6 +38,11 @@ export default {
   setup() {
     return {
       account: computed(() => AppState.account),
+      formatDate(rawDate) {
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        const formattedDate = new Date(rawDate).toLocaleDateString(undefined, options);
+        return formattedDate;
+      },
       async deletePost(postId) {
         try {
           if (await Pop.confirm('WARNING!!! This will toss your post into the ABYSS')) {
