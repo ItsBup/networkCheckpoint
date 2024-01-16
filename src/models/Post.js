@@ -6,6 +6,7 @@ export class Post {
     this.creatorId = data.creatorId
     this.likeIds = data.likeIds
     this.creator = data.creator
+    // this.formattedDate = this.formatDate(data.creator.createdAt)
     
   }
   // formatDate(date) {
