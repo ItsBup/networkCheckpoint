@@ -45,7 +45,8 @@ class PostService {
       const postIndex = AppState.posts.findIndex(post => post.id === postId)
       const likedByUser = AppState.posts[postIndex].likeIds.includes(AppState.account.id)
       if (likedByUser) {
-        await api.delete(`api/posts/${postId}/like`)
+        const res = await api.post(`api/posts/${postId}/like`)
+        logger.log ('this guy boss', res.data)
         const userLikeIndex = AppState.posts[postIndex].likeIds.indexOf(AppState.account.id);
         if (userLikeIndex !== -1) {
           AppState.posts[postIndex].likeIds.splice(userLikeIndex, 1);
@@ -60,9 +61,6 @@ class PostService {
       Pop.error(error)
     }
   }
-  // TODO write a like post method here that will reach out to the api to like a post. You will need the post ID for this POST request, and it should be formatted to look like this: 'api/posts/:postId/like'
-  // TODO if you want this to be reactive, splice out the old post from the appstate and replace it with res.data coming from the api
-
 
   // TODO write changePage method
   // TODO write changePageWithProfileId method
